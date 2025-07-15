@@ -20,6 +20,10 @@
     .bg-page-gray {
       background-color: #F5f5f5;
       font-family: 'Inter';   
+      }
+          .bg-page-white {
+      background-color: #FFFFFF;
+      font-family: 'Inter';   
     }
     .text-dark-gray {
       color: #1F2937;
@@ -43,7 +47,6 @@
       width: 100%;
       background-color: #4B5563;
       border-radius: 1px;
-      font-family: 'Inter';
     }
   </style>
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +58,7 @@
       <script src="settings.js"></script>
       <script src="x7us011izms.js" type="module"></script>
 </head>
-<body class="min-h-screen bg-page-gray flex flex-col">
+<body class="min-h-screen bg-page-white flex flex-col">
 
   <!-- Top Banner -->
   <div class="bg-blockfi-blue text-white text-center py-2 px-2 text-md md:text-base font-bold">
@@ -64,28 +67,25 @@
   </div>
 
   <!-- Header -->
-  <header class="bg-white py-4 px-1 pl-0 flex items-center justify-between shadow-sm">
+  <header class="bg-page-gray py-4 px-1 pl-0 flex items-center justify-between">
     <div class="flex items-center gap-2">
       <img src="logo.png" alt="BlockFi Logo" width="50" class="pl-5 text-blockfi-blue" />
-      <span class="text-3xl font-bold text-dark-gray">BlockFi</span>
+      <span class="text-2xl font-bold text-dark-gray">BlockFi</span>
     </div>
-    <div class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300" aria-label="Toggle navigation">
-      <div class="hamburger-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div class="md:hidden pr-4 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300" aria-label="Toggle navigation">
+    	<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="7.5" width="16" height="1.5"></rect><rect x="4" y="15" width="16" height="1.5"></rect>
+                  </svg>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main class="flex-1 py-8 px-4 md:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+  <main class="bg-page-white flex-1 py-8 px-4 md:px-6 lg:px-8 max-w-3xl mx-auto w-full">
     <h1 class="text-3xl md:text-4xl font-bold text-dark-gray mb-6">Pending Refund Portal</h1>
 
-    <div class="bg-white p-6 rounded-lg shadow-md">
+    <div class="bg-page-white p-6 rounded-lg">
       <div class="mb-6">
-        <label for="case-number" class="block text-medium-gray text-base font-medium mb-2">
-          Enter your Case Number from your email:
+        <label for="case-number" class="block text-medium-gray text-base font-medium mb-1">
+          Enter your Case Number:
         </label>
         <input
           id="case-number"
