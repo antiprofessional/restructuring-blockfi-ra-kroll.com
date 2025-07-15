@@ -145,5 +145,30 @@
       }
     }
   </script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const caseInput = document.getElementById('case-number');
+  const nextBtn = document.querySelector('button.w-full.bg-blockfi-blue');
+
+  function validateCaseNumber(value) {
+    return /^\d{2}-\d{5}$/.test(value);
+  }
+
+  function updateButtonState() {
+    if (validateCaseNumber(caseInput.value)) {
+      nextBtn.disabled = false;
+      nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    } else {
+      nextBtn.disabled = true;
+      nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+  }
+
+  // Initial state
+  updateButtonState();
+
+  caseInput.addEventListener('input', updateButtonState);
+});
+  </script>
 </body>
 </html>
